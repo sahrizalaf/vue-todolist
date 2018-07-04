@@ -1,21 +1,21 @@
 <template>
-	<div class="card">
-		<div class="card-header">
-			<h1>{{ text }}</h1>
+  <div class="card">
+    <div class="card-header">
+      <h1>{{ text }}</h1>
     </div>
     <div class="card-body-wrapper">
       <div class="card-body">
         <slot></slot>
       </div>
-		</div>
-		<div class="card-footer">
+    </div>
+    <div class="card-footer">
       <input type="text" class="fixed-bottom" placeholder="Add Task"
         v-show="formAddVisible"
-				v-model="newTodoTitle"
-				@keyup.enter="addTodo">
-			<button @click="toggle"> + </button>
-		</div>
-	</div>
+        v-model="newTodoTitle"
+        @keyup.enter="addTodo">
+      <button @click="toggle"> + </>
+    </div>
+  </div>
 </template>
 
 <script>
