@@ -13,7 +13,7 @@
         v-show="formAddVisible"
         v-model="newTodoTitle"
         @keyup.enter="addTodo">
-      <button @click="toggle"> + </>
+      <button @click="toggle"> + </button>
     </div>
   </div>
 </template>
@@ -22,30 +22,30 @@
 import axios from 'axios'
 
 export default {
-	name: 'Card',
-	props: {
-		text: String
-	},
-	data(){
-		return{
-			newTodoTitle: '',
-			formAddVisible: false
-		}
-	},
-	methods: {
-		toggle(){
-			this.formAddVisible = !this.formAddVisible
-		},
-		addTodo(){
-			if( this.newTodoTitle !== '' ){
-				axios.post('/tasks', {
-					title: this.newTodoTitle,
-					done: false
-				})
-				.then( () => {
+  name: 'Card',
+  props: {
+    text: String
+  },
+  data(){
+    return{
+      newTodoTitle: '',
+      formAddVisible: false
+    }
+  },
+  methods: {
+    toggle(){
+      this.formAddVisible = !this.formAddVisible
+    },
+    addTodo(){
+      if( this.newTodoTitle !== '' ){
+        axios.post('/tasks', {
+          title: this.newTodoTitle,
+          done: false
+        })
+        .then( () => {
           this.newTodoTitle = ''
-					this.$emit('added')
-					this.toggle()
+          this.$emit('added')
+          this.toggle()
           this.$swal({
             title: 'Saved!',
             text: 'Task has been added to your list.',
@@ -62,9 +62,9 @@ export default {
             })
           }
         })
-			}
-		}
-	},
+      }
+    }
+  },
   created(){
     this.$on('added', () => {
       this.$parent.fetch()
