@@ -104,10 +104,6 @@ export default {
   border-radius: 8px 8px 0 0;
 }
 
-/* .card-body-wrapper{
-  overflow-y: scroll;
-} */
-
 .card-body {
   position: relative;
   overflow-y: auto;
