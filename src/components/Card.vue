@@ -9,10 +9,12 @@
       </div>
     </div>
     <div class="card-footer">
-      <input type="text" class="fixed-bottom" placeholder="Add Task"
-        v-show="formAddVisible"
-        v-model="newTodoTitle"
-        @keyup.enter="addTodo">
+      <transition name="fade">
+        <input type="text" class="input input-add fixed-bottom" placeholder="Add Task"
+          v-show="formAddVisible"
+          v-model="newTodoTitle"
+          @keyup.enter="addTodo">
+      </transition>
       <button @click="toggle"> + </button>
     </div>
   </div>
@@ -116,10 +118,26 @@ export default {
   border-radius: 0 0 8px 8px;
 }
 
+.input{
+  border: 2px solid var(--blue);
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-add{
+  margin-left: 1.4em;
+  padding: 0.5em 0.8em !important;
+}
+
+.input:focus{
+  box-shadow: 0 0 15px 1px var(--blue);  
+  transition: 400ms;
+}
+
 .fixed-bottom {
   position: absolute;
   top: -100%;
-  width: 100%;
+  width: calc(100% - 2.8em);
 }
 
 button {
@@ -139,4 +157,14 @@ button:hover {
   background-color: #2980b9;
   transition: 500ms;
 }
+
+/* Transition */
+.fade-enter-active, .fade-leave-active {
+  transition: all 400ms;
+}
+.fade-enter, .fade-leave-to {
+  transform: translateY(15px);
+  opacity: 0;
+}
+
 </style>

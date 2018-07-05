@@ -1,15 +1,25 @@
 <template>
-  <div id="app" @click.self="revert">
+  <div id="app"
+    @click.self="revert">
     <Card text="To Do List App">
       <ul>
-        <li v-for="todo in todos" :key="todo.id" @click.self="revert" :class="{ done: todo.done}">
-          <input type="checkbox" v-model="todo.done" @change="editStatus(todo)">
-            <input type="text" v-model="todoTitle" v-if="todoId == todo.id"
-            @keyup.enter="editTitle(todo)">
+        <li 
+          v-for="todo in todos"
+          :key="todo.id"
+          @click.self="revert"
+          :class="{ done: todo.done }">
+          <input type="checkbox"
+            v-model="todo.done"
+            @change="editStatus(todo)">
+            <input type="text" class="input input-custom-width"
+              v-model="todoTitle"
+              v-if="todoId == todo.id"
+              @keyup.enter="editTitle(todo)">
             <span @dblclick="editable(todo)" v-if="!todoId && todoId != todo.id">
               {{ todo.title }}
             </span>
-            <a class="right" @click.prevent="deleteTodo(todo)">
+            <a class="right"
+              @click.prevent="deleteTodo(todo)">
               <faIcon class="icon" icon="trash"/>
             </a>
         </li>
@@ -197,7 +207,11 @@ export default {
   }
 
   input[type=text] {
-    padding: 0 0.8em;
+    padding: 0.1em 0.8em;
+  }
+
+  .input-custom-width{
+    width: 80%;
   }
 
 </style>
