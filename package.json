@@ -19,7 +19,7 @@
     "express": "^4.16.3",
     "mysql2": "^1.5.3",
     "nodemon": "^1.17.5",
-    "sequelize": "^4.37.10",
+    "sequelize": "^5.15.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-sweetalert2": "^1.4.2",
